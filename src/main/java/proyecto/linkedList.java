@@ -1,4 +1,4 @@
-package linkedlist;
+package proyecto;
 
 import java.util.Comparator;
 
@@ -45,7 +45,7 @@ public class linkedList<T extends Comparable<T>> {
         }
     }
     public boolean insertByPrice(T item) {
-        long startTime = System.nanoTime();
+        //long startTime = System.nanoTime();
         boolean inserted;
         Node<T> ptr;
         Node<T> prev;
@@ -67,8 +67,8 @@ public class linkedList<T extends Comparable<T>> {
                 prev.next = newp;
         }
         N = N +1;
-        long endTime = System.nanoTime();
-        System.out.println("El tiempo de ejecución fue de:"+(endTime-startTime)+" ns");
+        //long endTime = System.nanoTime();
+        //System.out.println("El tiempo de ejecución fue de:"+(endTime-startTime)+" ns");
         return inserted;
     }
     public void popBack() {

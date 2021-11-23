@@ -1,4 +1,4 @@
-package linkedlist;
+package proyecto;
 
 import java.util.Comparator;
 
