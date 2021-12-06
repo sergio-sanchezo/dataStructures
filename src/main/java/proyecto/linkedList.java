@@ -28,10 +28,33 @@ public class linkedList<T extends Comparable<T>> {
     public int sizeLinkedList() {
         return N;
     }
+    public void pushFront(T item) {
+
+        Node<T> ptr;
+        ptr = head;
+        Node<T> newp = new Node(item);
+        
+        newp.next = head;
+        head = newp;
+        if(tail == null){
+            tail = newp;
+        }
+        N = N +1;
+    }
+    public void popFront() {
+
+        if(head == null){
+            System.out.print("Error: Lista Vacia.");
+        }
+        head = head.next;
+        if(head == null){
+            tail = null;
+        }
+        N = N -1;
+    }
     public void pushBack(T item) {
 
         Node<T> ptr;
-        Node<T> auxt;
         ptr = head;
         Node<T> newp = new Node(item);
         
@@ -41,18 +64,17 @@ public class linkedList<T extends Comparable<T>> {
         }else{
             tail.next = newp;
             tail = newp;
-            N = N +1;
         }
+        N = N +1;
     }
     public boolean insertByPrice(T item) {
-        //long startTime = System.nanoTime();
         boolean inserted;
         Node<T> ptr;
         Node<T> prev;
         inserted = false;
         ptr = head;
         prev = null;
-        while(ptr != null && ptr.data.compareTo(item) < 0){
+        while(ptr != null && ptr.data.compareTo(item) <= 0){
             prev = ptr;
             ptr = ptr.next;
         }
@@ -65,10 +87,8 @@ public class linkedList<T extends Comparable<T>> {
                 head = newp;
             else
                 prev.next = newp;
+            N = N +1;
         }
-        N = N +1;
-        //long endTime = System.nanoTime();
-        //System.out.println("El tiempo de ejecución fue de:"+(endTime-startTime)+" ns");
         return inserted;
     }
     public void popBack() {
@@ -82,6 +102,7 @@ public class linkedList<T extends Comparable<T>> {
         if(head == tail){
             head = null;
             tail = null;
+            N = 0;
         }
         else{
             while(ptr.next.next != null){
@@ -89,11 +110,10 @@ public class linkedList<T extends Comparable<T>> {
             }
             ptr.next = auxNext;
             tail = ptr;
-        }
         N = N -1;
+        }
     }
     public void removeFirstByMemory(int memory){
-        long startTime = System.nanoTime();
         Node<T> ptr,prev;
         ptr = head;
         prev = null;
@@ -115,8 +135,6 @@ public class linkedList<T extends Comparable<T>> {
             prev = ptr;
             ptr = ptr.next;
         }
-        long endTime = System.nanoTime();
-        System.out.println("El tiempo de ejecución fue de:"+(endTime-startTime)+" ns");
     }
     public void FindAllByMemory(int memory){
         Node<T> ptr;
@@ -129,7 +147,50 @@ public class linkedList<T extends Comparable<T>> {
             ptr = ptr.next;
         }
     }
+    public boolean popByIndex(int index){
 
+        Node<T> ptr,prev;
+        ptr = head;
+        prev = null;
+        boolean removed = false;
+        if (ptr != null) {
+            if(index == 1){
+                head = head.next;
+                N = N-1;
+                removed = true;
+            }
+            for (int i = 2; i <= index; i++) {
+                prev = ptr;
+                ptr = ptr.next;
+                if(i == index){
+                    prev.next = ptr.next;
+                    N = N-1;
+                    return true;
+                }
+            }
+        }else{
+            System.out.print("Error: Lista Vacia.");
+            return false;
+        }
+        return removed;
+    }
+    public Node<T> findByIndex(int index){
+
+        Node<T> ptr;
+        ptr = head;
+        if (ptr != null) {
+            for (int i = 1; i < index; i++) {
+                if(ptr.next == null){
+                return null;
+                }
+                ptr = ptr.next;
+                if(i == index){
+                    return ptr;
+                }
+            }
+        }
+        return ptr;
+    }
     public void printRecursive() {
         System.out.println("List Recursive: ");
         printR(head);
@@ -140,5 +201,10 @@ public class linkedList<T extends Comparable<T>> {
             System.out.println(p.data.toString()+" ");
             printR(p.next);
         }
+    }
+
+    public T getOne(int index){
+        
+        return findByIndex(index).data;
     }
 }
