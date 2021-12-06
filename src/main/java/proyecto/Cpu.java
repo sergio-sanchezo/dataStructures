@@ -116,7 +116,7 @@ public class Cpu implements Comparable<Cpu>{
         return (nucleos == cpuO.nucleos);
     } 
     public String toString() {
-        return ("nombre:"+getNombre()+" "+"precio:"+getPrecio()+" "+" "+"numero nucleos:"+nucleos);
+        return (getNombre()+", "+"precio: "+getPrecio()+", "+" "+"numero nucleos: "+nucleos);
     } 
 
     

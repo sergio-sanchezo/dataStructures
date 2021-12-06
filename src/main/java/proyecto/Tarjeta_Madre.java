@@ -107,6 +107,6 @@ public class Tarjeta_Madre implements Comparable<Tarjeta_Madre>{
         return (memoria_max == tmO.memoria_max);
     } 
     public String toString() {
-        return ("nombre:"+nombre+" "+"precio:"+precio+" "+" "+"memoria maxima:"+memoria_max);
+        return (nombre+", "+"precio: "+precio+", "+" "+"memoria maxima: "+memoria_max);
     }
 }

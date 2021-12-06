@@ -52,6 +52,7 @@ public class main {
 
         linkedList listTM = new linkedList();
         linkedList listCPU = new linkedList();
+        linkedList listGF = new linkedList();
         
             Tarjeta_Madre tm1 = new Tarjeta_Madre("Supermicro MBD-X10DAX","2 x LGA2011-3","EATX",2000,16,"Green / Black",-1,575.20);
             Tarjeta_Madre tm2 = new Tarjeta_Madre("Asus Z10PE-D16 WS","2 x LGA2011-3","SSI EEB",1024,16,"Black / Gold",-1,0);
@@ -66,6 +67,9 @@ public class main {
             Cpu cpu4 = new Cpu("AMD Ryzen 5 5600X",12,3.7,4.8,105,"None",true,-117,524);
             Cpu cpu5 = new Cpu("AMD Ryzen 5 5600G",6,3.7,4.4,65,"Radeon Vega 7",true,-16,239);
 
+            Graficadora gf1 = new Graficadora("PNY VCNRTXA6000-PB","RTX A6000",48,1455,1860,"Black / Gold",266.7,0,4990.13);
+            Graficadora gf2 = new Graficadora("PNY VCQRTX8000-PB","Quadro RTX 8000",48,1395 ,1770,"Black / Gold",266.7,0,5600.10);
+        
             
             listTM.pushBack(tm2);
             listTM.pushBack(tm5);
@@ -79,34 +83,14 @@ public class main {
             listCPU.pushBack(cpu1);
             listCPU.pushBack(cpu4);
             
-            
-            /*for (int j = 0; j < 2000; j++) {
-                list.pushBack(tm2);
-            }
-            for (int j = 0; j < 2000; j++) {
-                list.pushBack(tm5);
-            }
-            for (int j = 0; j < 2000; j++) {
-                list.pushBack(tm3);
-            }
-            for (int j = 0; j < 2000; j++) {
-                list.pushBack(tm1);
-            }
-            for (int j = 0; j < 2000; j++) {
-                list.pushBack(tm4);
-            }*/
+            listGF.pushBack(gf1);
+            listGF.pushBack(gf2);
         
         JFrame interfazGrafica = new JFrame("Ventana Lista de Componentes");
-        InterfazUsuario listaComponentes = new InterfazUsuario(listTM,listCPU);
-        listaComponentes.setBounds(600, 150, 750, 500);
+        InterfazUsuario listaComponentes = new InterfazUsuario(listTM,listCPU,listGF);
+        listaComponentes.setBounds(400, 150, 920, 430);
         listaComponentes.setVisible(true);
         listaComponentes.setDefaultCloseOperation(3);
-
-        
-            
-            
-            
-        
     }
     
     
