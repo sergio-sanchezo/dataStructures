@@ -191,6 +191,24 @@ public class linkedList<T extends Comparable<T>> {
         }
         return ptr;
     }
+    public linkedList  copyList()
+    {
+        linkedList cList = new linkedList();
+        Node<T> nNode = cList.head;
+        Node<T> currNode = head;
+        System.out.print("LinkedList: ");	
+        // Traverse through the LinkedList
+        while (currNode != null) {
+            cList.pushFront(currNode.data);
+            // copy de nodes
+            //nNode = currNode; 
+            
+            // Go to next node
+            //nNode = nNode.next;
+            currNode = currNode.next;
+            }
+        return cList;
+    }
     public void printRecursive() {
         System.out.println("List Recursive: ");
         printR(head);

@@ -5,49 +5,7 @@ import java.util.*;
 import javax.swing.JFrame;
 public class main {
 
-    public static void printMenu(){
-        System.out.println ("**************************************************");
-        System.out.println ("**************************************************");
-        System.out.println ("Digite una de las opciones entre (1-5), (-1) para salir :");
-        System.out.println ("1. Método pushFront");
-        System.out.println ("2. Método popFront");
-        System.out.println ("3. Método pushBack");
-        System.out.println ("4. Método popBack");
-        System.out.println ("5. Método insertByPrice (Solo para lista enlazada)");
-        System.out.println ("***************************************************");
-        System.out.println ("**************************************************");
-    }
-    public static void printMenCantidad(){
-        System.out.println ("**************************************************");
-        System.out.println ("**************************************************");
-        System.out.println ("Seleccione con cual cantidad de datos desea trabajar entre (1-5):");
-        System.out.println ("1. 10,000");
-        System.out.println ("2. 100,000");
-        System.out.println ("3. 1'000,000");
-        System.out.println ("4. 10'000,000");
-        System.out.println ("5. 100'000,000 (Cantidad poco procesable)");
-        System.out.println ("***************************************************");
-        System.out.println ("**************************************************");
-    }
-    public static int cantidadDatos(int x){
-        int datos = 0;
-        if(x == 1){
-            datos = 10000;
-        }
-        if(x == 2){
-            datos = 100000;
-        }
-        if(x == 3){
-            datos = 1000000;
-        }
-        if(x == 4){
-            datos = 10000000;
-        }
-        if(x == 5){
-            datos = 100000000;
-        }
-        return datos;
-    }
+    
     public static void main(String[] args) {
 
         linkedList listTM = new linkedList();
@@ -91,6 +49,26 @@ public class main {
         listaComponentes.setBounds(400, 150, 920, 430);
         listaComponentes.setVisible(true);
         listaComponentes.setDefaultCloseOperation(3);
+        
+        Stack undoStack = new Stack(1000);
+        Stack redoStack = new Stack(1000);
+        linkedList temp = new linkedList();
+        
+        /*undoStack.push(listTM);
+        undoStack.push(listTM);
+        undoStack.push(listTM);
+        undoStack.printStack();
+        undoStack.pop();
+        System.out.println("Peek");
+        System.out.println(undoStack.peek());
+        listTM.pushBack(tm4);
+        undoStack.push(listTM);
+        listTM.printRecursive();
+        undoStack.undo(undoStack, redoStack);
+        temp = undoStack.peek();
+        listTM = temp.copyList();
+        listTM.printRecursive();*/
+        
     }
     
     
